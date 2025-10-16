@@ -1,0 +1,11 @@
+REM Made By Kushed3d
+DELAY 1000
+GUI SPACE
+DELAY 500
+STRING safari
+DELAY 500
+ENTER
+DELAY 1000
+STRING https://trash-gpt-ed4a8000.base44.app/
+DELAY 500
+ENTER

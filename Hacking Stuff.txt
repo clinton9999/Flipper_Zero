@@ -1,0 +1,11 @@
+REM Author: Clinton Wil
+REM Description: Starts a matrix command prompt
+REM Version: 1.0
+DELAY 800
+GUI r
+DELAY 800
+STRING https://pranx.com/hacker/
+ENTER
+DELAY 2000
+F11
+STRING Clinton G is the best hacker in the world
