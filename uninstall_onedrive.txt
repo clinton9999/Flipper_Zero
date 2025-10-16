@@ -1,0 +1,14 @@
+REM ###########################################################
+REM #                                                         |
+REM # Title        : Remove OneDrive                          |
+REM # Author       : Zenin                                    |
+REM # Version      : 1.0                                      |
+REM # Category     : Good USB                                 |
+REM # Target       : Windows                                  |
+REM #                                                         |
+REM ###########################################################
+DELAY 500
+GUI r
+DELAY 500
+STRING powershell -w h -ep bypass -Command  "iex (iwr -uri 'https://raw.githubusercontent.com/Zenin0/Glitter_Scripts/main/Windows/GoodUSB/OneDrive_Removal/remove_onedrive.ps1).Content"
+CTRL-SHIFT ENTER

